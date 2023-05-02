@@ -1,7 +1,5 @@
-
-
 def definestage(stage):
-    rankstage = {'A': 1, 'A+': 2, 'S-': 3, 'S': 4, 'S+': 5}
+    rankstage = {'A': 5, 'A+': 9, 'S-': 12, 'S': 13, 'S+': 14}
     for i in rankstage:
         if stage == i:
             stage = rankstage[i]
@@ -10,24 +8,21 @@ def definestage(stage):
             pass
 
 
-def maxstars(stage):
-    stagestar = {1: 5, 2: 9, 3: 12, 4: 13, 5: 14}
-    for i in stagestar:
-        if stage == i:
-            stage = stagestar[i]
-            return stage
+def checkelement(element):
+    elements = {'вода': 'aqua', 'огонь': 'fire', 'воздух': 'wind', 'инь': 'yin', 'янь': 'yang', 'любая': 'anything'}
+    if element == 'ветер':
+        element = 'воздух'
+    for i in elements:
+        if element == i:
+            element = elements[i]
+            return element
         else:
             pass
 
-    pass
 
-
-rank: str = input('char rank? (A - S+): ')
-userstage = definestage(rank)
-userstar = maxstars(userstage)
-print(f'Maximum stars: {userstar}')
-
-
-
-
-
+rank: str = input('Какого ранга персонаж? (A - S+): ').upper()
+elle: str = input('Какая стихия?: ').upper()
+# element: str = input('Какой элемент? (A - S+): ')
+charstage = definestage(rank)
+charelement = checkelement(elle)
+print(f'Maximum stars: {charstage}')
